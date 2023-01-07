@@ -68,13 +68,13 @@ export function MovieDetail() {
                         {list.find(item => item.imdbID === movieDeatil.imdbID) ?
                             <button
                                 onClick={() => dispatch(removeToList(movieDeatil))}
-                                className='bg-nored'>- REMOVE List</button> :
+                                className='bg-nored'>- REMOVE LIST</button> :
                             <button
                                 onClick={() => dispatch(addToList(movieDeatil))}
-                                className='bg-red'>+ ADD List</button>}
+                                className='bg-red'>+ ADD LIST</button>}
                         <a target={"_blank"} rel="noreferrer"
                             href={`https://www.imdb.com/title/${movieDeatil.imdbID}/`}>
-                            <button className='bg-3a70cf '>More Info From IMDB</button>
+                            <button className='bg-3a70cf '>MORE INFO FROM IMDB</button>
                         </a>
 
                     </div>
