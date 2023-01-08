@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getMovies } from '../../redux/actions/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { firstSearchValueAction, getMovies } from '../../redux/actions/action';
 import { Spinner } from '@chakra-ui/react'
 
 import './style.css';
@@ -8,11 +8,12 @@ import './style.css';
 
 export const SearchBox = (props) => {
     const [loading, setLoading] = useState(false)
-    const [searchLine, setSearchLine] = useState('')
+    const [searchLine, setSearchLine] = useState("")
     const dispatch = useDispatch()
+    const { firstsearchLine } = useSelector(state => state)
 
     useEffect(() => {
-        fetch(`https://www.omdbapi.com/?s=avengers&apikey=278924d5`)
+        fetch(`https://www.omdbapi.com/?s=${firstsearchLine[0]}&apikey=278924d5`)
             .then(res => res.json())
             .then(apiData => {
                 dispatch(getMovies(apiData?.Search))
@@ -25,7 +26,7 @@ export const SearchBox = (props) => {
         fetch(`https://www.omdbapi.com/?s=${searchLine}&apikey=278924d5`)
             .then(res => res.json())
             .then(apiData => {
-                if(apiData?.Search){
+                if (apiData?.Search) {
                     dispatch(getMovies(apiData?.Search))
                 }
             })
@@ -33,6 +34,7 @@ export const SearchBox = (props) => {
             .finally(() => {
                 setLoading(false)
                 props.datadom.current.style.top = "-100vh";
+                dispatch(firstSearchValueAction(searchLine))
             })
     }
     return (
@@ -45,7 +47,7 @@ export const SearchBox = (props) => {
                         id='search-input'
                         className="search_input"
                         placeholder="For example, Shawshank Redemption"
-                        onChange={(e) => setSearchLine(e.target.value)} />
+                        onChange={(e) => { setSearchLine(e.target.value) }} />
                 </label>
                 <button
                     type="submit"
