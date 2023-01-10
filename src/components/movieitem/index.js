@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { AddIcon, InfoOutlineIcon } from '@chakra-ui/icons'
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToList } from '../../store/actions/action';
-import './MovieItem.css';
+import { addToList } from '../../redux/actions/action';
 import { Link, useNavigate } from 'react-router-dom';
+import './style.css';
 
 
-
-const MovieItem = (props) => {
+export const MovieItem = (props) => {
 
     const [statusAdd, setStatusAdd] = useState(false)
     const [statusHave, setStatusHave] = useState(false)
@@ -31,7 +30,7 @@ const MovieItem = (props) => {
         }
     }
 
-    const getMovieDetail=(id)=>{
+    const getMovieDetail = (id) => {
         nav(`/movie/${id}`)
     }
 
@@ -72,13 +71,12 @@ const MovieItem = (props) => {
             </article>
             <div className='movie-item_action'>
                 <button onClick={() => { addList(props) }}><AddIcon /></button>
-                <button onClick={()=>{getMovieDetail(props.imdbID)}}><InfoOutlineIcon /></button>
+                <button onClick={() => { getMovieDetail(props.imdbID) }}><InfoOutlineIcon /></button>
             </div>
         </>
 
     )
 }
 
-export default MovieItem
 
 

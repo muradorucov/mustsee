@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import './ListPageDetail.css';
+import './style.css';
 
 
-const ListPageDetail = () => {
+export const ListPageDetail = () => {
     const [algoApiData, setAlgoApiData] = useState({})
     let { id } = useParams();
     useEffect(() => {
@@ -17,24 +17,20 @@ const ListPageDetail = () => {
     return (
         <>
             <div className="list-page">
-                {algoApiData ? <h1 className="list-page__title">{algoApiData.title}</h1> :null}
-
+                {algoApiData ? <h1 className="list-page__title">{algoApiData.title}</h1> : null}
                 <div className="row">
-
                     {algoApiData.movies?.map((item) => (
                         <div className='list-movie-item' key={item.imdbID}>
                             {item.Poster === "N/A" ? <img src="https://media.comicbook.com/files/img/default-movie.png"
                                 alt={item.Title} />
                                 : <img src={item.Poster} alt={item.Title} />}
-                            <Link  to={`/movie/${item.imdbID}/`}>{item.Title
+                            <Link to={`/movie/${item.imdbID}/`}>{item.Title
                             } ({item.Year})</Link>
                         </div>
                     ))}
 
                 </div>
             </div>
-            </>
+        </>
     )
 }
-
-export default ListPageDetail

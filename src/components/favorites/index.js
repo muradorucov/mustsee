@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
-
-import { listIsEmpty, removeToList } from '../../store/actions/action';
-import './Favorites.css';
+import { listIsEmpty, removeToList } from '../../redux/actions/action';
 import { useEffect } from 'react';
+import './style.css';
 
-const Favorites = () => {
+
+export const Favorites = () => {
     const [listName, setListName] = useState("");
     const [saveList, setSaveList] = useState(false)
     const [local, setLocal] = useState([])
@@ -23,6 +23,7 @@ const Favorites = () => {
 
     const getSaveList = (e) => {
         e.preventDefault()
+        setListName("")
         const listObj = {
             title: listName,
             movies: list
@@ -40,7 +41,6 @@ const Favorites = () => {
             })
             .finally(() => {
                 dispatch(listIsEmpty())
-                setListName("")
                 setSaveList(true)
                 setTimeout(() => {
                     setSaveList(false)
@@ -99,5 +99,3 @@ const Favorites = () => {
         </div>
     )
 }
-
-export default Favorites

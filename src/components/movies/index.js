@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import MovieItem from '../MovieItem/MovieItem';
-import './Movies.css';
+import { MovieItem } from '../movieitem';
+import './style.css';
 
 
-const Movies = () => {
+export const Movies = () => {
     const { movies } = useSelector(state => state)
 
     return (
@@ -19,4 +19,3 @@ const Movies = () => {
     )
 }
 
-export default Movies

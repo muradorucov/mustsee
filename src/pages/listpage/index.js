@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import './ListPage.css'
+import './style.css'
+
 export const ListPage = () => {
     const [list, setList] = useState(null)
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import './MainPage.css';
-import Header from '../../components/Header/Header';
-import Movies from '../../components/Movies/Movies';
+import { Movies } from '../../components/movies';
+import { Header } from '../../components/navbar';
+import './style.css';
 
 
 const MainPage = () => {

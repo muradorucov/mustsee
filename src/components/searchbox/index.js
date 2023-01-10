@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getMovies } from '../../store/actions/action';
+import { getMovies } from '../../redux/actions/action';
 import { Spinner } from '@chakra-ui/react'
 
-import './SearchBox.css';
+import './style.css';
 
 
-const SearchBox = (props) => {
+export const SearchBox = (props) => {
     const [loading, setLoading] = useState(false)
     const [searchLine, setSearchLine] = useState('')
     const dispatch = useDispatch()
@@ -25,7 +25,9 @@ const SearchBox = (props) => {
         fetch(`https://www.omdbapi.com/?s=${searchLine}&apikey=278924d5`)
             .then(res => res.json())
             .then(apiData => {
-                dispatch(getMovies(apiData?.Search))
+                if(apiData?.Search){
+                    dispatch(getMovies(apiData?.Search))
+                }
             })
             .catch(err => console.log(err))
             .finally(() => {
@@ -67,4 +69,3 @@ const SearchBox = (props) => {
     )
 }
 
-export default SearchBox

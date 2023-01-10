@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import { CloseIcon, HamburgerIcon, Search2Icon } from '@chakra-ui/icons';
-import './Header.css';
-import SearchBox from '../SearchBox/SearchBox';
-import Favorites from '../Favorites/Favorites';
+import './style.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { SearchBox } from '../searchbox';
+import { Favorites } from '../favorites';
 
 
-const Header = () => {
+export const Header = () => {
     const search = useRef(null);
     const favlist = useRef(null);
     const { list } = useSelector(state => state)
@@ -61,4 +61,3 @@ const Header = () => {
     )
 }
 
-export default Header
