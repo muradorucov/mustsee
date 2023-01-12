@@ -7,7 +7,6 @@ import './MovieItem.css';
 const MovieItem = (props) => {
     const dispatch = useDispatch()
 
-    // console.log(props);
     const addList = () => {
         dispatch(addToList(props))
     }
