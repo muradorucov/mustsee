@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Favorites.css';
 
 const Favorites = () => {
+    const { list } = useSelector(state => state)
 
-    const [favorites, setFavorites] = useState({
-        title: 'Новый список',
-        movies: [
-            { imdbID: 'tt0068646', title: 'The Godfather', year: 1972 }
-        ]
-    })
+    console.log(list);
     return (
         <div className="favorites">
             <input value="Новый список" className="favorites__name" />
             <ul className="favorites__list">
-                {favorites.movies.map((item) => {
-                    return <li key={item.imdbID}>{item.title} ({item.year})</li>;
-                })}
+                {list?.map((item) => (<li key={item?.imdbID} className="list-item">
+                    <Link to="#!">{item?.Title} ({item?.Year})</Link>
+                    <button>x</button></li>))}
             </ul>
             <button type="button" className="favorites__save">Сохранить список</button>
         </div>

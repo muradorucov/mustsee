@@ -5,10 +5,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { combineReducers, createStore } from 'redux';
 
 import App from './App';
+import { listReduce } from './store/reducers/list.reduce';
 import { moviesReducer } from './store/reducers/reducer';
 
 const reducers = combineReducers({
-  movies: moviesReducer
+  movies: moviesReducer,
+  list: listReduce
 })
 
 const GlobalState = createStore(
