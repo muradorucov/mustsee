@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { getMovies } from '../../store/actions/action';
 import './SearchBox.css';
 
 
 const SearchBox = () => {
     const [searchLine, setSearchLine] = useState('')
+    const [data, setData] = useState([])
+
+    const dispatch = useDispatch()
 
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        dispatch(getMovies(data?.Search))
     }
+
+    useEffect(() => {
+        fetch(`https://www.omdbapi.com/?s=${searchLine}&apikey=278924d5`)
+            .then(res => res.json())
+            .then(apiData => setData(apiData))
+            .catch(err => console.log(err))
+    }, [searchLine])
+
+
+
 
     return (
         <div className="search-box">

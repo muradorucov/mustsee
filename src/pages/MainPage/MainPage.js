@@ -7,6 +7,7 @@ import Favorites from '../../components/Favorites/Favorites';
 
 
 const MainPage = () => {
+
     return (
         <div className="main-page">
             <Header />

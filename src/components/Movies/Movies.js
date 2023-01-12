@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import MovieItem from '../MovieItem/MovieItem';
 import './Movies.css';
 
 
 
 const Movies = () => {
-    const [movies, setMovies] = useState([
+    const { movies } = useSelector(state => state)
+
+    console.log(movies[0]);
+    // console.log(movies)
+    const [movi, setMovies] = useState([
         {
             imdbID: 'tt3896198',
             title: "Guardians of the Galaxy Vol. 2",
@@ -23,7 +28,7 @@ const Movies = () => {
     ])
     return (
         <ul className="movies">
-            {movies.map((movie) => (
+            {movies[0]?.map((movie) => (
                 <li className="movies__item" key={movie.imdbID}>
                     <MovieItem {...movie} />
                 </li>
