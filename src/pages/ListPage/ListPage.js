@@ -3,7 +3,7 @@ import './ListPage.css';
 
 
 const ListPage = () => {
-    const [movies, setMovies] = useState([
+    const [movies] = useState([
         { title: 'The Godfather', year: 1972, imdbID: 'tt0068646' }
     ])
 
