@@ -32,6 +32,10 @@
     transition: all 0.2s linear;
 }
 
+.favorites__save:disabled{
+    background-color: #496ddb78;
+}
+
 .list-item{
     display: flex;
     justify-content: space-between;
