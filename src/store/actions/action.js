@@ -6,3 +6,7 @@ export const getMovies = (payload) => {
 export const addToList = (payload) => {
     return { type: 'ADD-TO_LIST', payload: payload }
 }
+
+export const removeToList = (payload) => {
+    return { type: 'REMOVE-TO_LIST', payload: payload }
+}

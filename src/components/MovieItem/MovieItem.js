@@ -16,7 +16,7 @@ const MovieItem = (props) => {
             <img className="movie-item__poster" src={props?.Poster} alt={props?.Title} />
             <div className="movie-item__info">
                 <h3 className="movie-item__title">{props?.Title}&nbsp;({props?.Year})</h3>
-                <button type="button" className="movie-item__add-button" onClick={addList}>Добавить в список</button>
+                <button type="button" className="movie-item__add-button" onClick={addList}>Add to list</button>
             </div>
         </article>
     )

@@ -4,7 +4,8 @@ export const listReduce = (state = [], action) => {
             return [...state, action.payload]
         }
         return state
-
+    } else if (action.type === 'REMOVE-TO_LIST') {
+        return [...state.filter(item => item.imdbID !== action.payload.imdbID)]
     }
     return state
 }
