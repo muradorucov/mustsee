@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeToList, saveList } from '../../store/actions/action';
@@ -6,6 +6,9 @@ import './Favorites.css';
 
 const Favorites = () => {
     const [listName, setListName] = useState("");
+    const [data, setData] = useState();
+    const [isFirstRender, setIsFirstRender] = useState();
+
 
     const { list } = useSelector(state => state)
     const dispatch = useDispatch()
@@ -15,20 +18,28 @@ const Favorites = () => {
         dispatch(removeToList(param))
     }
 
-    const getSaveList = async () => {
+
+    useEffect(() => {
+        setIsFirstRender(data)
+        console.log(isFirstRender);
+    }, [data])
+
+
+    const getSaveList = () => {
         let myList = list.map(item => item.imdbID)
         const listObj = {
             title: listName,
             movies: myList
         }
-        const response = await fetch('https://acb-api.algoritmika.org/api/movies/list/', {
+        fetch('https://acb-api.algoritmika.org/api/movies/list/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(listObj),
-        });
-        const json = await response.json();
-        console.log(json)
-
+        })
+            .then(res => res.json())
+            .then(apiData => {
+                setData(apiData)
+            })
     }
 
     return (
