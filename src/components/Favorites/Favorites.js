@@ -7,22 +7,14 @@ import './Favorites.css';
 const Favorites = () => {
     const [listName, setListName] = useState("");
     const [data, setData] = useState();
-    const [isFirstRender, setIsFirstRender] = useState();
-
 
     const { list } = useSelector(state => state)
     const dispatch = useDispatch()
-
-
     const removeList = (param) => {
         dispatch(removeToList(param))
     }
 
-
-    useEffect(() => {
-        setIsFirstRender(data)
-        console.log(isFirstRender);
-    }, [data])
+    console.log(listName && list)
 
 
     const getSaveList = () => {
@@ -44,17 +36,24 @@ const Favorites = () => {
 
     return (
         <div className="favorites">
-            <input placeholder='New list' className="favorites__name" onChange={(e) => { setListName(e.target.value) }} />
+            <input
+                placeholder='New list'
+                className="favorites__name"
+                onChange={(e) => { setListName(e.target.value) }}
+            />
             <ul className="favorites__list">
                 {list?.map((item) => (<li key={item?.imdbID} className="list-item">
                     <Link to="#!">{item?.Title} ({item?.Year})</Link>
-                    <button onClick={() => { removeList(item) }}>x</button></li>))}
+                    <button
+                        onClick={() => { removeList(item) }}>x</button></li>))}
             </ul>
-            <button
-                type="button"
-                className="favorites__save"
-                onClick={getSaveList}
-                disabled={!listName}>Save list</button>
+
+            {data ? <Link to={`list/${data.id}`} onClick={() => { console.log(data.id) }}>{listName}</Link> :
+                <button
+                    type="button"
+                    className="favorites__save"
+                    onClick={getSaveList}
+                    disabled={!listName}>Save list</button>}
         </div>
     )
 }
