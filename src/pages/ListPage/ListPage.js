@@ -16,7 +16,7 @@ const ListPage = () => {
                         {item.Poster==="N/A" ? <img src="https://media.comicbook.com/files/img/default-movie.png"
                             alt={item.Title} />
                         : <img src={item.Poster} alt={item.Title} />}
-                        <a target={"_blank"} href={`https://www.imdb.com/title/${item.imdbID}/`}>{item.Title
+                        <a target={"_blank"} rel="noreferrer" href={`https://www.imdb.com/title/${item.imdbID}/`}>{item.Title
                         } ({item.Year})</a>
                     </div>
 
