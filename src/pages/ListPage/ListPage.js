@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import './ListPage.css';
 
 
 const ListPage = () => {
-    const [movies] = useState([
-        { title: 'The Godfather', year: 1972, imdbID: 'tt0068646' }
-    ])
+    const { list } = useSelector(state => state)
 
-    useEffect(() => {
-        // const id = this.props.match.params;
-        // console.log(id);
-    })
     return (
         <div className="list-page">
-            <h1 className="list-page__title">Мой список</h1>
-            <ul>
-                {movies.map((item) => (
-                    <li key={item.imdbID}>
-                        <a href="https://www.imdb.com/title/tt0068646/">{item.title} ({item.year})</a>
-                    </li>
+            <h1 className="list-page__title">My list</h1>
+
+            <div className="row">
+                {list?.map((item) => (
+                    <div className='list-movie-item' key={item.imdbID}>
+                        {item.Poster==="N/A" ? <img src="https://media.comicbook.com/files/img/default-movie.png"
+                            alt={item.Title} />
+                        : <img src={item.Poster} alt={item.Title} />}
+                        <a target={"_blank"} href={`https://www.imdb.com/title/${item.imdbID}/`}>{item.Title
+                        } ({item.Year})</a>
+                    </div>
+
                 ))}
-            </ul>
+
+            </div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeToList, saveList } from '../../store/actions/action';
+import { removeToList } from '../../store/actions/action';
 import './Favorites.css';
 
 const Favorites = () => {

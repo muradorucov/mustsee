@@ -13,7 +13,7 @@ const MovieItem = (props) => {
 
     return (
         <article className="movie-item">
-            {props?.Poster == "N/A" ?
+            {props?.Poster === "N/A" ?
                 <img className="movie-item__poster"
                     src="https://media.comicbook.com/files/img/default-movie.png"
                     alt={props?.Title} />
