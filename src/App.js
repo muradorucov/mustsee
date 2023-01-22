@@ -5,6 +5,7 @@ import ListPage from './pages/ListPage/ListPage';
 
 import './reset.css';
 import './common.css';
+import { NotFound } from './pages/NotFound';
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/list/:id" element={<ListPage />} />
+        <Route path="*" element={< NotFound />} />
       </Routes>
     </div>
   )
