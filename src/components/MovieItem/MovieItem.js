@@ -13,7 +13,13 @@ const MovieItem = (props) => {
 
     return (
         <article className="movie-item">
-            <img className="movie-item__poster" src={props?.Poster} alt={props?.Title} />
+            {props?.Poster == "N/A" ?
+                <img className="movie-item__poster"
+                    src="https://media.comicbook.com/files/img/default-movie.png"
+                    alt={props?.Title} />
+                : <img className="movie-item__poster"
+                    src={props?.Poster} alt={props?.Title} />}
+
             <div className="movie-item__info">
                 <h3 className="movie-item__title">{props?.Title}&nbsp;({props?.Year})</h3>
                 <button type="button" className="movie-item__add-button" onClick={addList}>Add to list</button>

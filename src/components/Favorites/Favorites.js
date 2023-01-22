@@ -6,6 +6,7 @@ import './Favorites.css';
 
 const Favorites = () => {
     const [listName, setListName] = useState("");
+    const [btnStatus, setBtnStatus] = useState(false)
     const [data, setData] = useState();
 
     const { list } = useSelector(state => state)
@@ -13,8 +14,6 @@ const Favorites = () => {
     const removeList = (param) => {
         dispatch(removeToList(param))
     }
-
-    console.log(listName && list)
 
 
     const getSaveList = () => {
@@ -32,6 +31,7 @@ const Favorites = () => {
             .then(apiData => {
                 setData(apiData)
             })
+        setBtnStatus(true)
     }
 
     return (
@@ -43,17 +43,16 @@ const Favorites = () => {
             />
             <ul className="favorites__list">
                 {list?.map((item) => (<li key={item?.imdbID} className="list-item">
-                    <Link to="#!">{item?.Title} ({item?.Year})</Link>
+                    <span>{item?.Title} ({item?.Year})</span>
                     <button
                         onClick={() => { removeList(item) }}>x</button></li>))}
             </ul>
-
-            {data ? <Link to={`list/${data.id}`} onClick={() => { console.log(data.id) }}>{listName}</Link> :
+            {data ? <Link to={`list/${data.id}`} >Go to list : {data.title}</Link> :
                 <button
                     type="button"
                     className="favorites__save"
                     onClick={getSaveList}
-                    disabled={!listName}>Save list</button>}
+                    disabled={!listName || !list.length || btnStatus}>Save list</button>}
         </div>
     )
 }
