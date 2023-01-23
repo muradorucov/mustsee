@@ -10,6 +10,7 @@ const Favorites = () => {
     const [data, setData] = useState();
 
     const { list } = useSelector(state => state)
+
     const dispatch = useDispatch()
     const removeList = (param) => {
         dispatch(removeToList(param))
@@ -17,10 +18,10 @@ const Favorites = () => {
 
 
     const getSaveList = () => {
-        let myList = list.map(item => item.imdbID)
+        let myMoviesID = list.map(item => item.imdbID)
         const listObj = {
             title: listName,
-            movies: myList
+            movies: myMoviesID
         }
         fetch('https://acb-api.algoritmika.org/api/movies/list/', {
             method: 'POST',
@@ -45,7 +46,8 @@ const Favorites = () => {
                 {list?.map((item) => (<li key={item?.imdbID} className="list-item">
                     <span>{item?.Title} ({item?.Year})</span>
                     <button
-                        onClick={() => { removeList(item) }}>x</button></li>))}
+                        onClick={() => { removeList(item) }}
+                        className="list-btn">x</button></li>))}
             </ul>
             {data ? <Link to={`list/${data.id}`} >Go to list : {data.title}</Link> :
                 <button

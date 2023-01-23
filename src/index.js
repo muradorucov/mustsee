@@ -17,8 +17,6 @@ const GlobalState = createStore(
   reducers
 )
 
-
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={GlobalState}>
     <BrowserRouter>

@@ -18,7 +18,8 @@ const MovieItem = (props) => {
                     src="https://media.comicbook.com/files/img/default-movie.png"
                     alt={props?.Title} />
                 : <img className="movie-item__poster"
-                    src={props?.Poster} alt={props?.Title} />}
+                    src={props?.Poster} alt={props?.Title} />
+            }
 
             <div className="movie-item__info">
                 <h3 className="movie-item__title">{props?.Title}&nbsp;({props?.Year})</h3>

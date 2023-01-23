@@ -42,3 +42,20 @@
     align-items: center;
     margin-bottom: 10px;
 }
+
+.list-btn{
+    cursor: pointer;
+    padding: 5px 20px;
+    background-color: #496DDB;
+    border: none;
+    border-radius: 4px;
+    color: #FFEEDB;
+    transition: ease-in .2s all;
+    font-size: 18px;
+}
+
+.list-btn:hover{
+    transition: ease-in .2s all;
+    background-color: blueviolet;
+    border-bottom-left-radius: 10px;
+}
