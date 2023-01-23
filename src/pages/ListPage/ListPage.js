@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import './ListPage.css';
 
 
 const ListPage = () => {
-    const [movieId, setMovieId] = useState([])
+    // const [movieId, setMovieId] = useState([])
     // const [stateMovies, setstateMovies] = useState([])
     const { list } = useSelector(state => state)
-    let { id } = useParams();
+    // let { id } = useParams();
 
-    useEffect(() => {
-        fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setMovieId([...data.movies])
-                console.log(movieId)
-                // console.log(data.movies);
-                // data.movies.forEach(element => {
-                //     fetch(`https://www.omdbapi.com/?i=${element}&apikey=278924d5`)
-                //     .then(res => res.json())
-                //     .then(movie => {
-                //         setstateMovies([...stateMovies, { ...movie }])
-                //         console.log(movie);
-                //         console.log(stateMovies);
-                //     })
-                // });
+    // useEffect(() => {
+    //     fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setMovieId([...data.movies])
+    //             console.log(movieId)
+    //             // console.log(data.movies);
+    //             // data.movies.forEach(element => {
+    //             //     fetch(`https://www.omdbapi.com/?i=${element}&apikey=278924d5`)
+    //             //     .then(res => res.json())
+    //             //     .then(movie => {
+    //             //         setstateMovies([...stateMovies, { ...movie }])
+    //             //         console.log(movie);
+    //             //         console.log(stateMovies);
+    //             //     })
+    //             // });
 
-            })
-    }, [])
+    //         })
+    // },[])
 
 
 
