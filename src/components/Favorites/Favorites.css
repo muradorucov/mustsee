@@ -13,6 +13,11 @@
     margin-bottom: 24px;
 }
 
+.favorites__name:focus {
+    border-color: rgb(8, 119, 247);
+    box-shadow: 2px 4px 20px 1px rgb(45 45 45 / 13%);
+}
+
 .favorites__list {
     margin-bottom: 24px;
 }
@@ -32,18 +37,19 @@
     transition: all 0.2s linear;
 }
 
-.favorites__save:disabled{
+.favorites__save:disabled {
     background-color: #496ddb78;
+    cursor: not-allowed;
 }
 
-.list-item{
+.list-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.list-btn{
+.list-btn {
     cursor: pointer;
     padding: 2px 15px;
     background-color: #496DDB;
@@ -54,7 +60,7 @@
     font-size: 18px;
 }
 
-.list-btn:hover{
+.list-btn:hover {
     transition: ease-in .2s all;
     background-color: blueviolet;
 }

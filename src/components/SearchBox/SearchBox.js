@@ -31,7 +31,7 @@ const SearchBox = () => {
                         type="text"
                         className="search-box__form-input"
                         placeholder="For example, Shawshank Redemption"
-                        onChange={(e) => { setSearchLine(e.target.value) }}
+                        onChange={(e) => setSearchLine(e.target.value)}
                     />
                 </label>
                 <button

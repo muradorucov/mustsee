@@ -7,6 +7,7 @@
 .movie-item__poster {
     height: 150px;
     margin-right: 21px;
+    width: 110px;
 }
 
 .movie-item__title {
@@ -30,8 +31,8 @@
     transition: all 0.2s linear;
 }
 
-.alert{
+.alert {
     position: fixed;
-    right: 7px;
+    right: 22px;
     bottom: 22px;
 }

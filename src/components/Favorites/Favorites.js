@@ -49,7 +49,7 @@ const Favorites = () => {
                         onClick={() => { removeList(item) }}
                         className="list-btn">x</button></li>))}
             </ul>
-            {data ? <Link to={`list/${data.id}`} >Go to list : {data.title}</Link> :
+            {data ? <Link to={`list/${data.id}`} ><button className="favorites__save">Go to list : {data.title}</button></Link> :
                 <button
                     type="button"
                     className="favorites__save"

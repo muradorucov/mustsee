@@ -5,6 +5,7 @@
 .list-page__title {
     font-size: 34px;
     margin-bottom: 26px;
+    margin-left: 26px;
 }
 
 .list-page ul li {
@@ -55,4 +56,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+
+@media screen and (max-width:516px){
+    .list-movie-item{
+        margin-right: 0;
+    }
 }
