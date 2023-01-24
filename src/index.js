@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ChakraProvider} from "@chakra-ui/react";
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { combineReducers, createStore } from 'redux';
@@ -18,9 +19,11 @@ const GlobalState = createStore(
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={GlobalState}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
+  <ChakraProvider>
+    <Provider store={GlobalState}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </ChakraProvider>,
 )

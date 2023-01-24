@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMovies } from '../../store/actions/action';
+import { Spinner } from '@chakra-ui/react'
+
 import './SearchBox.css';
 
 
 const SearchBox = () => {
+    const [loading, setLoading] = useState(false)
     const [searchLine, setSearchLine] = useState('')
     const dispatch = useDispatch()
-    
+
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        setLoading(true)
         fetch(`https://www.omdbapi.com/?s=${searchLine}&apikey=278924d5`)
             .then(res => res.json())
             .then(apiData => {
                 dispatch(getMovies(apiData?.Search))
             })
             .catch(err => console.log(err))
+            .finally(() => setLoading(false))
     }
     return (
         <div className="search-box">
@@ -37,6 +42,16 @@ const SearchBox = () => {
                     Search
                 </button>
             </form>
+
+            <div className='loading'>
+                {loading ? <Spinner
+                    thickness='4px'
+                    speed='0.65s'
+                    emptyColor='gray.200'
+                    color='blue.500'
+                    size='xl'
+                /> : null}
+            </div>
         </div>
     )
 }

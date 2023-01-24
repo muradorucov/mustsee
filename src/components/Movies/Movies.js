@@ -4,7 +4,6 @@ import MovieItem from '../MovieItem/MovieItem';
 import './Movies.css';
 
 
-
 const Movies = () => {
     const { movies } = useSelector(state => state)
 

@@ -39,3 +39,8 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.loading{
+    margin-top: 18px;
+    margin-left: 30px;
+}

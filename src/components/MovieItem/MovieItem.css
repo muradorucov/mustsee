@@ -29,3 +29,9 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+.alert{
+    position: fixed;
+    right: 7px;
+    bottom: 22px;
+}
