@@ -6,6 +6,9 @@
     font-size: 34px;
     margin-bottom: 26px;
     margin-left: 26px;
+    font-style: oblique;
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 .list-page ul li {
