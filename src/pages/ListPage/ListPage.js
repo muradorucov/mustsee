@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import './ListPage.css';
 
 
 const ListPage = () => {
     const [algoApiData, setAlgoApiData] = useState({})
-    const { list } = useSelector(state => state)
-
     let { id } = useParams();
     useEffect(() => {
-        fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`)
+        fetch(`https://63c190e499c0a15d28ed39de.mockapi.io/api/v1/movies/${id}`)
             .then(res => res.json())
             .then(data => {
                 setAlgoApiData(data)
+                console.log(data);
             })
     }, [id])
 
@@ -23,7 +21,8 @@ const ListPage = () => {
                 <h1 className="list-page__title">My list</h1>}
 
             <div className="row">
-                {list?.map((item) => (
+
+                {algoApiData.movies?.map((item) => (
                     <div className='list-movie-item' key={item.imdbID}>
                         {item.Poster === "N/A" ? <img src="https://media.comicbook.com/files/img/default-movie.png"
                             alt={item.Title} />

@@ -18,12 +18,11 @@ const Favorites = () => {
 
 
     const getSaveList = () => {
-        let myMoviesID = list.map(item => item.imdbID)
         const listObj = {
             title: listName,
-            movies: myMoviesID
+            movies: list
         }
-        fetch('https://acb-api.algoritmika.org/api/movies/list/', {
+        fetch('https://63c190e499c0a15d28ed39de.mockapi.io/api/v1/movies/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(listObj),
