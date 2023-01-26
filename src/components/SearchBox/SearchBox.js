@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMovies } from '../../store/actions/action';
 import { Spinner } from '@chakra-ui/react'
@@ -10,6 +10,14 @@ const SearchBox = () => {
     const [loading, setLoading] = useState(false)
     const [searchLine, setSearchLine] = useState('')
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        fetch(`https://www.omdbapi.com/?s=avengers&apikey=278924d5`)
+            .then(res => res.json())
+            .then(apiData => {
+                dispatch(getMovies(apiData?.Search))
+            })
+    }, [])
 
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
