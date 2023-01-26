@@ -17,7 +17,7 @@ const SearchBox = () => {
             .then(apiData => {
                 dispatch(getMovies(apiData?.Search))
             })
-    }, [])
+    },[dispatch])
 
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
