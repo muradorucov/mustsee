@@ -71,7 +71,7 @@ export function MovieDetail() {
                                 className='bg-nored'>- REMOVE List</button> :
                             <button
                                 onClick={() => dispatch(addToList(movieDeatil))}
-                                className='bg-red'>+ MY List</button>}
+                                className='bg-red'>+ ADD List</button>}
                         <a target={"_blank"} rel="noreferrer"
                             href={`https://www.imdb.com/title/${movieDeatil.imdbID}/`}>
                             <button className='bg-3a70cf '>More Info From IMDB</button>
