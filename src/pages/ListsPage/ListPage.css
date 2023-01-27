@@ -1,3 +1,29 @@
 .listpage{
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-list{
+    width: 65%;
+}
+
+.movie-list a{
+    color: #000000;
+}
+
+.movie-list li{
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 45px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: #000000;
+
 }

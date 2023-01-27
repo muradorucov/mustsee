@@ -12,12 +12,17 @@ export const ListPage = () => {
     }, []);
     return (
         <div className='listpage'>
-            <div>ListPage</div>
+            <h1 className="list-page__title">My Lists</h1>
 
-            <ul>
+            <ul className='movie-list'>
                 {list?.map(item => (
                     <>
-                        <Link to={`/listdetail/${item.id}`}><li key={item.id}>{item.title}</li></Link>
+                        <li key={item.id}>
+                            <Link to={`/listdetail/${item.id}`}>
+                                <span>{item.title}</span>
+                            </Link>
+                            <button className="list-btn">x</button>
+                        </li>
                     </>
                 ))}
             </ul>
