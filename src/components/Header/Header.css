@@ -1,11 +1,56 @@
 .header {
-    background: #496DDB;
-    padding: 20px calc(50% - 500px) 10px;
+    padding: 15px calc(50% - 500px);
+    background-color: #060f19;
+    font-size: 20px;
+    color: #fff;
+}
+
+.header,
+ul.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header__title {
+    cursor: pointer;
     font-family: 'Luckiest Guy', cursive;
     color: #FFEEDB;
     font-size: 45px;
     margin-left: 40px;
+    transition: all .3s ease-out;
+    position: relative;
+}
+
+.proggresBar {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    height: 4px;
+    background-color: #13be13;
+    transition: .3s ease-in;
+
+}
+
+.header__title:hover .proggresBar {
+    width: 100%;
+    transition: .4s ease-in;
+}
+
+ul.list li {
+    cursor: pointer;
+    margin-right: 50px;
+    font-weight: bold;
+    transition: ease .3s;
+}
+
+ul.list li:hover {
+    color: #13be13;
+    transition: ease .3s;
+}
+
+ul.list li:last-child {
+    margin-right: 0px;
 }
