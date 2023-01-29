@@ -126,7 +126,7 @@ ul.list li:last-child {
     margin-left: 30px;
 }
 
-.close-search{
+.close-search {
     position: absolute;
     top: 40px;
     right: 100px;
@@ -138,6 +138,17 @@ ul.list li:last-child {
     }
 }
 
+@media screen and (max-width:778px) {
+    .search-form {
+        width: 85%;
+    }
+
+    .close-search {
+        right: 50px;
+    }
+}
+
+
 @media screen and (max-width:490px) {
     .header__title {
         font-size: 25px;
@@ -146,5 +157,15 @@ ul.list li:last-child {
     ul.list li {
         font-size: 17px;
         margin-right: 25px;
+    }
+
+    .search-label,
+    .search_input,
+    .search-box__form-submit {
+        font-size: 15px;
+    }
+
+    .search-box__form-submit {
+        height: 43px;
     }
 }
