@@ -20,9 +20,9 @@ const MainPage = () => {
                         <Movies />
                     </div>
                 </section>
-                <aside className="main-page__favorites">
+                {/* <aside className="main-page__favorites">
                     <Favorites />
-                </aside>
+                </aside> */}
             </main>
         </div>
     )

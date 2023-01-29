@@ -46,10 +46,10 @@ const MovieItem = (props) => {
                     src={props?.Poster} alt={props?.Title} />
             }
 
-            <div className="movie-item__info">
+            {/* <div className="movie-item__info">
                 <h3 className="movie-item__title">{props?.Title}&nbsp;({props?.Year})</h3>
                 <button type="button" className="movie-item__add-button" onClick={() => { addList(props) }}>Add to list</button>
-            </div>
+            </div> */}
 
 
             {statusAdd ? <div className='alert'>
