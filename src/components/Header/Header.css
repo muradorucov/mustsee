@@ -1,4 +1,6 @@
 .header {
+    position: sticky;
+    top: 0;
     padding: 15px calc(50% - 500px);
     background-color: #060f19;
     font-size: 20px;
@@ -16,8 +18,7 @@ ul.list {
     cursor: pointer;
     font-family: 'Luckiest Guy', cursive;
     color: #FFEEDB;
-    font-size: 45px;
-    margin-left: 40px;
+    font-size: 35px;
     transition: all .3s ease-out;
     position: relative;
 }
@@ -53,4 +54,21 @@ ul.list li:hover {
 
 ul.list li:last-child {
     margin-right: 0px;
+}
+
+@media screen and (max-width:1120px) {
+    .header {
+        padding: 15px 20px;
+    }
+}
+
+@media screen and (max-width:490px) {
+    .header__title {
+        font-size: 25px;
+    }
+
+    ul.list li {
+        font-size: 17px;
+        margin-right: 25px;
+    }
 }
