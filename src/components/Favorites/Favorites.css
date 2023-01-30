@@ -1,7 +1,5 @@
 .favorites {
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 8, 7);
-    padding: 30px 20px;
+    padding: 20px
 }
 
 .favorites__name {
@@ -23,8 +21,9 @@
 }
 
 .favorites__save {
+    width: 100%;
     border: none;
-    background-color: #496DDB;
+    background-color: #83858a;
     padding: 10px 15px;
     color: #FFEEDB;
     font-size: 14px;
@@ -38,7 +37,7 @@
 }
 
 .favorites__save:disabled {
-    background-color: #496ddb78;
+    background-color: #e51e1efd;
     cursor: not-allowed;
 }
 

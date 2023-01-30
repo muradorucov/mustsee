@@ -1,10 +1,13 @@
 import React, { useRef } from 'react';
-import { CloseIcon, Search2Icon } from '@chakra-ui/icons';
+import { CloseIcon, HamburgerIcon, Search2Icon } from '@chakra-ui/icons';
 import './Header.css';
+import SearchBox from '../SearchBox/SearchBox';
+import Favorites from '../Favorites/Favorites';
 
 
 const Header = () => {
-    const search = useRef(true);
+    const search = useRef(null);
+    const favlist = useRef(null);
 
     const getSearchPanel = () => {
         search.current.style.top = "0"
@@ -14,6 +17,13 @@ const Header = () => {
         search.current.style.top = "-100vh"
     }
 
+    const getFavList = () => {
+        favlist.current.style.right = "0"
+    }
+
+    const closefavlist = () => {
+        favlist.current.style.right = "-300px"
+    }
 
     return (
         <header className="header">
@@ -27,29 +37,20 @@ const Header = () => {
                 <li onClick={getSearchPanel}>
                     <Search2Icon />
                 </li>
+                <li onClick={getFavList} className="fav-list-icon">
+                    <span className='fav-length'>7</span>
+                    <div className='fav-icon'>
+                        <HamburgerIcon />
+                    </div>
+                </li>
             </ul>
             <div className='nav-search' ref={search}>
-                <form className="search-form" >
-                    <label className="search-label" id='search-input'>
-                        Search movie by name:
-                        <input
-                            type="text"
-                            id='search-input'
-                            className="search_input"
-                            placeholder="For example, Shawshank Redemption"
-                        // onChange={(e) => setSearchLine(e.target.value)}
-                        />
-                    </label>
-                    <button
-                        type="submit"
-                        className="search-box__form-submit"
-                    // disabled={!searchLine}
-                    >
-                        Search
-                    </button>
-                </form>
-                <button className='close-search' onClick={closeSearchForm}><CloseIcon/></button>
-
+                <SearchBox datadom={search} />
+                <button className='close-search' onClick={closeSearchForm}><CloseIcon /></button>
+            </div>
+            <div className='fav-list' ref={favlist}>
+                <button className='close-fav-list' onClick={closefavlist}><CloseIcon /></button>
+                <Favorites />
             </div>
         </header>
     )

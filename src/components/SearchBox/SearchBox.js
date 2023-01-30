@@ -6,7 +6,7 @@ import { Spinner } from '@chakra-ui/react'
 import './SearchBox.css';
 
 
-const SearchBox = () => {
+const SearchBox = (props) => {
     const [loading, setLoading] = useState(false)
     const [searchLine, setSearchLine] = useState('')
     const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const SearchBox = () => {
             .then(apiData => {
                 dispatch(getMovies(apiData?.Search))
             })
-    },[dispatch])
+    }, [dispatch])
 
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
@@ -28,19 +28,23 @@ const SearchBox = () => {
                 dispatch(getMovies(apiData?.Search))
             })
             .catch(err => console.log(err))
-            .finally(() => setLoading(false))
+            .finally(() => {
+                setLoading(false)
+                console.log(props);
+                props.datadom.current.style.top = "-100vh"
+            })
     }
     return (
-        <div className="search-box">
-            <form className="search-box__form" onSubmit={searchBoxSubmitHandler}>
-                <label className="search-box__form-label">
-                    Search movie by title:
+        <>
+            <form className="search-form" onSubmit={searchBoxSubmitHandler}>
+                <label className="search-label" id='search-input'>
+                    Search movie by name:
                     <input
                         type="text"
-                        className="search-box__form-input"
+                        id='search-input'
+                        className="search_input"
                         placeholder="For example, Shawshank Redemption"
-                        onChange={(e) => setSearchLine(e.target.value)}
-                    />
+                        onChange={(e) => setSearchLine(e.target.value)} />
                 </label>
                 <button
                     type="submit"
@@ -60,7 +64,7 @@ const SearchBox = () => {
                     size='xl'
                 /> : null}
             </div>
-        </div>
+        </>
     )
 }
 

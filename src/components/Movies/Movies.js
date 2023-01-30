@@ -14,8 +14,8 @@ const Movies = () => {
                 <li className="movies__item" key={movie.imdbID}>
                     <MovieItem {...movie} />
                     <div className='movie-item_action'>
-                        <button><AddIcon /></button>
-                        <button><InfoOutlineIcon /></button>
+                        <button><AddIcon/></button>
+                        <button><InfoOutlineIcon/></button>
                     </div>
                 </li>
             ))}

@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
-import { useDispatch, useSelector } from 'react-redux';
-import { addToList } from '../../store/actions/action';
+import React from 'react';
+// import {Alert,AlertIcon,Stack} from '@chakra-ui/react'
+// import { useDispatch, useSelector } from 'react-redux';
+// import { addToList } from '../../store/actions/action';
 import './MovieItem.css';
 
 
 
 const MovieItem = (props) => {
 
-    const [statusAdd, setStatusAdd] = useState(false)
-    const [statusHave, setStatusHave] = useState(false)
-    const dispatch = useDispatch()
-    const { list } = useSelector(state => state)
+    // const [statusAdd, setStatusAdd] = useState(false)
+    // const [statusHave, setStatusHave] = useState(false)
+    // const dispatch = useDispatch()
+    // const { list } = useSelector(state => state)
 
-    const addList = (paramProps) => {
-        if (!list.find(item => item.imdbID === paramProps.imdbID)) {
-            dispatch(addToList(props))
-            setStatusAdd(true)
-            setTimeout(() => {
-                setStatusAdd(false)
-            }, 900)
-        } else {
-            setStatusHave(true)
-            setTimeout(() => {
-                setStatusHave(false)
-            }, 900)
-        }
+    // const addList = (paramProps) => {
+    //     if (!list.find(item => item.imdbID === paramProps.imdbID)) {
+    //         dispatch(addToList(props))
+    //         setStatusAdd(true)
+    //         setTimeout(() => {
+    //             setStatusAdd(false)
+    //         }, 900)
+    //     } else {
+    //         setStatusHave(true)
+    //         setTimeout(() => {
+    //             setStatusHave(false)
+    //         }, 900)
+    //     }
 
 
 
-    }
+    // }
 
     return (
         <article className="movie-item">
@@ -47,7 +47,7 @@ const MovieItem = (props) => {
             </div>
 
 
-            {statusAdd ? <div className='alert'>
+            {/* {statusAdd ? <div className='alert'>
                 <Stack>
                     <Alert status='success' variant='solid' bgColor="blue.500">
                         <AlertIcon />
@@ -63,7 +63,7 @@ const MovieItem = (props) => {
                         The movie is already in the list !
                     </Alert>
                 </Stack>
-            </div> : null}
+            </div> : null} */}
 
         </article>
     )

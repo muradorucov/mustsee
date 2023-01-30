@@ -41,6 +41,12 @@ const Favorites = () => {
                 className="favorites__name"
                 onChange={(e) => { setListName(e.target.value) }}
             />
+            {data ? <Link to={`list/${data.id}`} ><button className="favorites__save">Go to list : {data.title}</button></Link> :
+                <button
+                    type="button"
+                    className="favorites__save"
+                    onClick={getSaveList}
+                    disabled={!listName || !list.length || btnStatus}>Save list</button>}
             <ul className="favorites__list">
                 {list?.map((item) => (<li key={item?.imdbID} className="list-item">
                     <span>{item?.Title} ({item?.Year})</span>
@@ -48,12 +54,7 @@ const Favorites = () => {
                         onClick={() => { removeList(item) }}
                         className="list-btn">x</button></li>))}
             </ul>
-            {data ? <Link to={`list/${data.id}`} ><button className="favorites__save">Go to list : {data.title}</button></Link> :
-                <button
-                    type="button"
-                    className="favorites__save"
-                    onClick={getSaveList}
-                    disabled={!listName || !list.length || btnStatus}>Save list</button>}
+
         </div>
     )
 }
