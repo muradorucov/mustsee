@@ -62,10 +62,10 @@ const Favorites = () => {
                 value={listName}
                 onChange={(e) => { setListName(e.target.value) }}
             />
-            {{data ? <Link to={`listdetail/${data.id}`} >
+            {data ? <Link to={`listdetail/${data.id}`} >
                 <button className="favorites__save">Go to list : {data.title}</button>
             </Link> : null
-            }}
+            }
             <button
                 type="button"
                 className="favorites__save"
