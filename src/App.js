@@ -1,11 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
-import ListPage from './pages/ListPage/ListPage';
+import ListPageDetail from "./pages/ListPageDetail/ListPageDetail"
+import { NotFound } from './pages/NotFound';
+import { ListPage } from './pages/ListsPage/ListPage';
 
 import './reset.css';
 import './common.css';
-import { NotFound } from './pages/NotFound';
+
 
 
 const App = () => {
@@ -13,7 +15,8 @@ const App = () => {
     <div className="app">
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/list/:id" element={<ListPage />} />
+        <Route path="/lists" element={<ListPage />} />
+        <Route path="/listdetail/:id" element={<ListPageDetail />} />
         <Route path="*" element={< NotFound />} />
       </Routes>
     </div>

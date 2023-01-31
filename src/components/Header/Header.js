@@ -3,12 +3,14 @@ import { CloseIcon, HamburgerIcon, Search2Icon } from '@chakra-ui/icons';
 import './Header.css';
 import SearchBox from '../SearchBox/SearchBox';
 import Favorites from '../Favorites/Favorites';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const Header = () => {
     const search = useRef(null);
     const favlist = useRef(null);
-
+    const { list } = useSelector(state => state)
     const getSearchPanel = () => {
         search.current.style.top = "0"
     }
@@ -22,23 +24,26 @@ const Header = () => {
     }
 
     const closefavlist = () => {
-        favlist.current.style.right = "-300px"
+        favlist.current.style.right = "-340px"
     }
+
 
     return (
         <header className="header">
             <h1 className="header__title">
-                MustSee
-                <div className='proggresBar'></div>
+                <Link to="/">
+                    MustSee
+                    <div className='proggresBar'></div>
+                </Link>
             </h1>
             <ul className='list'>
-                <li>Movies</li>
-                <li>My lists</li>
+                <li><Link to="/">Movies</Link></li>
+                <li><Link to="/lists">My lists</Link></li>
                 <li onClick={getSearchPanel}>
                     <Search2Icon />
                 </li>
                 <li onClick={getFavList} className="fav-list-icon">
-                    <span className='fav-length'>7</span>
+                    <span className='fav-length'>{list.length}</span>
                     <div className='fav-icon'>
                         <HamburgerIcon />
                     </div>

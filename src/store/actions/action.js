@@ -10,3 +10,7 @@ export const addToList = (payload) => {
 export const removeToList = (payload) => {
     return { type: 'REMOVE-TO_LIST', payload: payload }
 }
+
+export const listIsEmpty = () => {
+    return { type: 'ALL_LIST_EMPTY' }
+}

@@ -1,5 +1,6 @@
 .favorites {
-    padding: 20px
+    padding: 20px;
+    margin-top: 40px;
 }
 
 .favorites__name {
@@ -9,6 +10,7 @@
     padding: 5px 10px;
     border: 1px solid rgba(0, 8, 7, .5);
     margin-bottom: 24px;
+    color: black;
 }
 
 .favorites__name:focus {
@@ -17,13 +19,13 @@
 }
 
 .favorites__list {
-    margin-bottom: 24px;
+    margin-top: 24px;
 }
 
 .favorites__save {
     width: 100%;
     border: none;
-    background-color: #83858a;
+    background-color: #e51e1e;
     padding: 10px 15px;
     color: #FFEEDB;
     font-size: 14px;
@@ -37,7 +39,7 @@
 }
 
 .favorites__save:disabled {
-    background-color: #e51e1efd;
+    background-color: #e51e1e79;
     cursor: not-allowed;
 }
 
@@ -48,10 +50,14 @@
     margin-bottom: 10px;
 }
 
+.list-item span{
+    font-size: 15px;
+}
+
 .list-btn {
     cursor: pointer;
     padding: 2px 15px;
-    background-color: #496DDB;
+    background-color: #e51e1e;
     border: none;
     border-radius: 4px;
     color: #FFEEDB;
