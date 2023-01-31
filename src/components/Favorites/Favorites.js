@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 
 import { listIsEmpty, removeToList } from '../../store/actions/action';
@@ -12,7 +12,7 @@ const Favorites = () => {
     const [btnStatus, setBtnStatus] = useState(false)
     const [saveList, setSaveList] = useState(false)
     const [data, setData] = useState();
-    const [items, setItems] = useState([]);
+//     const [items, setItems] = useState([]);
 
     const { list } = useSelector(state => state)
 
@@ -39,7 +39,7 @@ const Favorites = () => {
             .then(res => res.json())
             .then(apiData => {
                 setData(apiData)
-                setItems([apiData])
+//                 setItems([apiData])
             })
             .finally(() => {
                 dispatch(listIsEmpty())
@@ -62,10 +62,10 @@ const Favorites = () => {
                 value={listName}
                 onChange={(e) => { setListName(e.target.value) }}
             />
-            {/* {data ? <Link to={`listdetail/${data.id}`} >
+            {{data ? <Link to={`listdetail/${data.id}`} >
                 <button className="favorites__save">Go to list : {data.title}</button>
             </Link> : null
-            } */}
+            }}
             <button
                 type="button"
                 className="favorites__save"
