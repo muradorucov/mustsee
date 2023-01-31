@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 
 import { listIsEmpty, removeToList } from '../../store/actions/action';
