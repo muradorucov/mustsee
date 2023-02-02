@@ -10,7 +10,7 @@
     padding: 5px 10px;
     border: 1px solid rgba(0, 8, 7, .5);
     margin-bottom: 24px;
-    color: black;
+    color: black  !important;
 }
 
 .favorites__name:focus {

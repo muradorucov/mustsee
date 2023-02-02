@@ -6,7 +6,7 @@ body,
 button,
 input {
     font-family: 'Roboto', 'Helvetica', sans-serif;
-    color: #fff ;
+    color: #fff !important;
 }
 
 body {
