@@ -12,25 +12,27 @@ import './style.css';
 export const MovieItem = (props) => {
 
     const [statusAdd, setStatusAdd] = useState(false)
-    // const [statusHave, setStatusHave] = useState(false)
+    const [statusHave, setStatusHave] = useState(false)
     const nav = useNavigate(null)
     const dispatch = useDispatch()
     const { list } = useSelector(state => state)
 
-    const addList = (paramProps) => {
-        if (!list.find(item => item.imdbID === paramProps.imdbID)) {
-            dispatch(addToList(props))
-            setStatusAdd(true)
-            setTimeout(() => {
-                setStatusAdd(false)
-            }, 900)
-        } else {
-            // setStatusHave(true)
-            setTimeout(() => {
-                // setStatusHave(false)
-            }, 900)
-        }
+    const addList = (props) => {
+        dispatch(addToList(props))
+        setStatusAdd(true)
+        setTimeout(() => {
+            setStatusAdd(false)
+        }, 900)
     }
+
+    const removeItemListAlert = (props) => {
+        dispatch(removeToList(props))
+        setStatusHave(true)
+        setTimeout(() => {
+            setStatusHave(false)
+        }, 900)
+    }
+
 
     const getMovieDetail = (id) => {
         nav(`/movie/${id}`)
@@ -56,25 +58,25 @@ export const MovieItem = (props) => {
                     <Stack>
                         <Alert status='success' variant='solid' bgColor="whatsapp">
                             <AlertIcon />
-                            Added a movie to the list !
+                            Movie added to favorites !
                         </Alert>
                     </Stack>
                 </div> : null}
 
-                {/* {statusHave ? <div className='alert'>
+                {statusHave ? <div className='alert'>
                     <Stack>
                         <Alert status='error' variant='solid' >
                             <AlertIcon />
-                            The movie is already in the list !
+                            Movie removed from favorites !
                         </Alert>
                     </Stack>
-                </div> : null} */}
+                </div> : null}
 
             </article>
             <div className='movie-item_action'>
                 {list.find(item => item.imdbID === props.imdbID) ?
-                    <button onClick={() => dispatch(removeToList(props))} > <FavoriteIcon /></button> :
-                    <button onClick={() => { addList(props) }}><FavoriteBorderIcon /></button>}
+                    <button onClick={() => removeItemListAlert(props)} > <FavoriteIcon /></button> :
+                    <button onClick={() => addList(props)}><FavoriteBorderIcon /></button>}
                 <button onClick={() => { getMovieDetail(props.imdbID) }}><InfoIcon /></button>
             </div>
         </>
