@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './ListPageDetail.css';
 
 
@@ -11,7 +11,6 @@ const ListPageDetail = () => {
             .then(res => res.json())
             .then(data => {
                 setAlgoApiData(data)
-                console.log(data);
             })
     }, [id])
 
@@ -27,8 +26,8 @@ const ListPageDetail = () => {
                             {item.Poster === "N/A" ? <img src="https://media.comicbook.com/files/img/default-movie.png"
                                 alt={item.Title} />
                                 : <img src={item.Poster} alt={item.Title} />}
-                            <a target={"_blank"} rel="noreferrer" href={`https://www.imdb.com/title/${item.imdbID}/`}>{item.Title
-                            } ({item.Year})</a>
+                            <Link  to={`/movie/${item.imdbID}/`}>{item.Title
+                            } ({item.Year})</Link>
                         </div>
                     ))}
 

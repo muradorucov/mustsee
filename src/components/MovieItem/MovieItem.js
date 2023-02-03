@@ -4,6 +4,7 @@ import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToList } from '../../store/actions/action';
 import './MovieItem.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -44,7 +45,7 @@ const MovieItem = (props) => {
                 }
 
                 <div className="movie-item__info">
-                    <h3 className="movie-item__title">{props?.Title}</h3>
+                    <Link to={`/movie/${props.imdbID}`}><h3 className="movie-item__title">{props?.Title}</h3></Link>
                 </div>
 
 
