@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { AddIcon, InfoOutlineIcon, CloseIcon } from '@chakra-ui/icons'
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToList, removeToList } from '../../redux/actions/action';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import InfoIcon from '@mui/icons-material/Info';
 import { Link, useNavigate } from 'react-router-dom';
 import './style.css';
 
@@ -71,9 +73,9 @@ export const MovieItem = (props) => {
             </article>
             <div className='movie-item_action'>
                 {list.find(item => item.imdbID === props.imdbID) ?
-                    <button onClick={() => dispatch(removeToList(props))} > <CloseIcon /></button> :
-                    <button onClick={() => { addList(props) }}><AddIcon /></button>}
-                <button onClick={() => { getMovieDetail(props.imdbID) }}><InfoOutlineIcon /></button>
+                    <button onClick={() => dispatch(removeToList(props))} > <FavoriteIcon /></button> :
+                    <button onClick={() => { addList(props) }}><FavoriteBorderIcon /></button>}
+                <button onClick={() => { getMovieDetail(props.imdbID) }}><InfoIcon /></button>
             </div>
         </>
 

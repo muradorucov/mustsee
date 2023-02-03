@@ -29,12 +29,13 @@
 }
 
 
-.movie-item_action button {
-    font-size: 24px;
+.movie-item_action button svg{
+    width: 30px;
+    height: 30px;
 }
 
 .movie-item_action button:first-child {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 .movies__item:hover .movie-item_action {
@@ -55,7 +56,8 @@
         width: 85px;
         height: 170px;
     }
-    .movie-item_action button {
-        font-size: 35px;
+    .movie-item_action button svg{
+        width: 50px;
+        height: 50px;
     }
 }
