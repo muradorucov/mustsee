@@ -48,7 +48,7 @@
     right: 22px;
     bottom: 22px;
     z-index: 100;
-    box-shadow: 2px 4px 4px 1px rgb(6 1 6);
+    box-shadow: 2px 1px 6px -2px rgba(168, 165, 168, 0.781);
     border-radius: 5px;
     overflow: hidden;
     border-bottom-left-radius:10px ;

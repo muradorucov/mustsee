@@ -25,6 +25,7 @@
 .favorites__save {
     width: 100%;
     border: none;
+    margin-bottom: 10px;
     background-color: #e51e1e;
     padding: 10px 15px;
     color: #FFEEDB;
