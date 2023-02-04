@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import './ListPage.css'
 export const ListPage = () => {
-    const [list,setList] = useState(null)
+    const [list, setList] = useState(null)
 
     useEffect(() => {
         const localValue = JSON.parse(localStorage.getItem("mylist"));
@@ -16,7 +17,7 @@ export const ListPage = () => {
             <ul>
                 {list?.map(item => (
                     <>
-                        <li key={item.id}>{item.title}</li>
+                        <Link to={`/listdetail/${item.id}`}><li key={item.id}>{item.title}</li></Link>
                     </>
                 ))}
             </ul>
