@@ -20,8 +20,7 @@ const ListPageDetail = () => {
         <>
             <Header />
             <div className="list-page">
-                {algoApiData ? <h1 className="list-page__title">{algoApiData.title}</h1> :
-                    <h1 className="list-page__title">My list</h1>}
+                {algoApiData ? <h1 className="list-page__title">{algoApiData.title}</h1> :null}
 
                 <div className="row">
 

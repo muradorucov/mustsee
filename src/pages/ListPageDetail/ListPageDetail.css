@@ -1,11 +1,12 @@
 .list-page {
     padding: 42px calc(30% - 300px);
+    color: #fff;
 }
 
 .list-page__title {
     font-size: 34px;
     margin-bottom: 26px;
-    margin-left: 26px;
+    margin-left: 60px;
     font-style: oblique;
     text-transform: uppercase;
     font-weight: 800;
