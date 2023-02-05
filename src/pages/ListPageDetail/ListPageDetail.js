@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../../components/Header/Header';
 import './ListPageDetail.css';
 
 
@@ -18,7 +17,6 @@ const ListPageDetail = () => {
 
     return (
         <>
-            <Header />
             <div className="list-page">
                 {algoApiData ? <h1 className="list-page__title">{algoApiData.title}</h1> :null}
 
@@ -35,7 +33,8 @@ const ListPageDetail = () => {
                     ))}
 
                 </div>
-            </div></>
+            </div>
+            </>
     )
 }
 

@@ -19,7 +19,8 @@ const Favorites = () => {
     }
 
 
-    const getSaveList = () => {
+    const getSaveList = (e) => {
+        e.preventDefault()
         const listObj = {
             title: listName,
             movies: list
@@ -48,22 +49,23 @@ const Favorites = () => {
 
     return (
         <div className="favorites">
-            <input
-                placeholder='New list'
-                className="favorites__name"
-                value={listName}
-                onChange={(e) => { setListName(e.target.value) }}
-            />
-            <button
-                type="button"
-                className="favorites__save"
-                onClick={getSaveList}
-                disabled={!listName || !list.length}>Save list</button>
+            <form onSubmit={getSaveList}>
+                <input
+                    placeholder='New list'
+                    className="favorites__name"
+                    value={listName}
+                    onChange={(e) => { setListName(e.target.value) }}
+                />
+                <button
+                    type="submit"
+                    className="favorites__save"
+                    disabled={!listName || !list.length}>Save list</button>
+            </form>
             {data ? <Link to={`listdetail/${data.id}`} >
                 <button className="favorites__save">Go to list : {data.title}</button>
             </Link> : null
             }
-            
+
             <ul className="favorites__list">
                 {list?.map((item) => (<li key={item?.imdbID} className="list-item">
                     <span>{item?.Title} ({item?.Year})</span>

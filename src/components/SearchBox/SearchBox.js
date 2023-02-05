@@ -30,8 +30,7 @@ const SearchBox = (props) => {
             .catch(err => console.log(err))
             .finally(() => {
                 setLoading(false)
-                console.log(props);
-                props.datadom.current.style.top = "-100vh"
+                props.datadom.current.style.top = "-100vh";
             })
     }
     return (
