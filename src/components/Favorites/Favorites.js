@@ -5,10 +5,12 @@ import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 
 import { listIsEmpty, removeToList } from '../../store/actions/action';
 import './Favorites.css';
+import { useEffect } from 'react';
 
 const Favorites = () => {
     const [listName, setListName] = useState("");
     const [saveList, setSaveList] = useState(false)
+    const [local, setLocal] = useState([])
     const [data, setData] = useState();
 
     const { list } = useSelector(state => state)
@@ -34,6 +36,7 @@ const Favorites = () => {
             .then(res => res.json())
             .then(apiData => {
                 setData(apiData)
+                setLocal([...local, apiData])
             })
             .finally(() => {
                 dispatch(listIsEmpty())
@@ -45,6 +48,16 @@ const Favorites = () => {
             })
     }
 
+    useEffect(() => {
+        const storedValue = JSON.parse(localStorage.getItem("mylist"));
+        if (storedValue) {
+            setLocal([...storedValue])
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("mylist", JSON.stringify(local));
+    }, [local])
 
 
     return (
