@@ -4,7 +4,7 @@ import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToList } from '../../store/actions/action';
 import './MovieItem.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -12,6 +12,7 @@ const MovieItem = (props) => {
 
     const [statusAdd, setStatusAdd] = useState(false)
     const [statusHave, setStatusHave] = useState(false)
+    const nav = useNavigate(null)
     const dispatch = useDispatch()
     const { list } = useSelector(state => state)
 
@@ -28,9 +29,10 @@ const MovieItem = (props) => {
                 setStatusHave(false)
             }, 900)
         }
+    }
 
-
-
+    const getMovieDetail=(id)=>{
+        nav(`/movie/${id}`)
     }
 
     return (
@@ -70,7 +72,7 @@ const MovieItem = (props) => {
             </article>
             <div className='movie-item_action'>
                 <button onClick={() => { addList(props) }}><AddIcon /></button>
-                <button><InfoOutlineIcon /></button>
+                <button onClick={()=>{getMovieDetail(props.imdbID)}}><InfoOutlineIcon /></button>
             </div>
         </>
 
