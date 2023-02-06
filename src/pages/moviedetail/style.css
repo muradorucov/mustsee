@@ -73,6 +73,7 @@
 .bg-nored {
     background: #706d6d;
 }
+
 .bg-3a70cf {
     background: #3a70cf;
 }
@@ -103,11 +104,23 @@
     .movie-item-detail-vs ul li {
         margin-bottom: 10px;
     }
+
+
+    
 }
 
 
 @media screen and (max-width: 540px) {
     .movie-item-detail-vs h2 {
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
+        font-size: 19px;
+    }
+    .movie-detail-btns button {
+        width: 100%;
+        margin: 0;
+    }
+
+    .movie-detail-btns>button{
+       margin: 20px 0 10px;
     }
 }
