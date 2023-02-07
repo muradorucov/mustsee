@@ -27,8 +27,7 @@ export const ListPageDetail = () => {
                             {item.Poster === "N/A" ? <img src="https://media.comicbook.com/files/img/default-movie.png"
                                 alt={item.Title} />
                                 : <img src={item.Poster} alt={item.Title} />}
-                            <Link to={`/movie/${item.imdbID}/`}>{item.Title
-                            } ({item.Year})</Link>
+                            <Link to={`/movie/${item.imdbID}/`}>{item.Title}</Link>
                         </div>
                     ))}
 

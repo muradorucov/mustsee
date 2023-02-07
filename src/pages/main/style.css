@@ -40,6 +40,8 @@
 
     .movie-item__title {
         font-size: 16px !important;
-        word-break: break-word;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
