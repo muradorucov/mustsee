@@ -6,6 +6,7 @@
 
 .movie-item-detail img {
     height: 410px;
+    width: 300px;
 }
 
 .movie-item-detail-vs {
@@ -20,7 +21,7 @@
     max-width: 600px;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 
@@ -55,8 +56,8 @@
 }
 
 .movie-detail-btns button {
-    color: #fff;
-    padding: 10px 90px;
+    width: 200px;
+    height: 50px;
     border: 0;
     border-radius: 0;
     margin-right: 40px;
@@ -65,12 +66,15 @@
     font-weight: 600;
 }
 
-.color-red {
+.bg-red {
     background: #ff0000;
 }
 
-.color-nored {
+.bg-nored {
     background: #706d6d;
+}
+.bg-3a70cf {
+    background: #3a70cf;
 }
 
 @media screen and (max-width: 970px) {
