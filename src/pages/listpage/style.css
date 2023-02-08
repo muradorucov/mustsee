@@ -12,6 +12,15 @@
 
 .movie-list a{
     color: #000000;
+    width: 80%;
+}
+
+.movie-list a span{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
 }
 
 .movie-list li{
