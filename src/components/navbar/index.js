@@ -39,7 +39,7 @@ export const Header = () => {
             </h1>
             <ul className='list'>
                 <li><Link to="/">Movies</Link></li>
-                <li><Link to="/lists">My lists</Link></li>
+                <li><Link to="/lists">Lists</Link></li>
                 <li onClick={getSearchPanel}>
                     <Search2Icon />
                 </li>

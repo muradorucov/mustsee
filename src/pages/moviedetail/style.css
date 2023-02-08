@@ -18,9 +18,10 @@
     font-size: 34px;
     text-transform: uppercase;
     max-width: 600px;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 .movie-item-detail-vs ul {
@@ -76,6 +77,7 @@
     .movie-item-detail {
         padding: 15px 20px 60px;
     }
+
     .movie-item-detail {
         display: flex;
         flex-direction: column;
@@ -85,14 +87,23 @@
     .movie-item-detail img {
         width: 300px;
     }
+
     .movie-item-detail-vs {
-        margin-left:0;
+        margin-left: 0;
     }
+
     .movie-item-detail-vs ul {
         flex-wrap: wrap;
     }
 
-    .movie-item-detail-vs ul li{
+    .movie-item-detail-vs ul li {
         margin-bottom: 10px;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+    .movie-item-detail-vs h2 {
+        -webkit-line-clamp: 2;
     }
 }
