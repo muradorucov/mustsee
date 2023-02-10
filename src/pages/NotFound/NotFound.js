@@ -33,7 +33,7 @@ export function NotFound() {
                         <p className="message__text">We're sorry, the page you were looking for isn't found here. The link you followed may either be broken or no longer exists. Please try again, or take a look at our.</p>
                     </div>
                     <div className="error__nav e-nav">
-                        <Link to="/" className="e-nav__link"></Link>
+                        <Link to="" className="e-nav__link"></Link>
                     </div>
                 </div>
 

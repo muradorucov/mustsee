@@ -6,7 +6,7 @@ import { ListPageDetail } from './pages/listdetail';
 import './reset.css';
 import './common.css';
 import { MovieDetail } from './pages/moviedetail/MovieDetail';
-import { NotFound } from './pages/notfound/NotFound';
+import { NotFound } from './pages/NotFound/NotFound';
 
 
 const App = () => {
