@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/main';
 import { ListPage } from './pages/listpage';
 import { ListPageDetail } from './pages/listdetail';
-import { NotFound } from './pages/notfound';
+// import { NotFound } from './pages/notfound';
 import { MovieDetail } from './pages/moviedetail';
 
 import './reset.css';
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/lists" element={<ListPage />} />
         <Route path="/listdetail/:id" element={<ListPageDetail />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
-        <Route path="/*" element={< NotFound />} />
+        {/* <Route path="/*" element={< NotFound />} /> */}
       </Routes>
     </div>
   )
