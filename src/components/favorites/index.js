@@ -29,13 +29,14 @@ export const Favorites = () => {
             movies: list
         }
 
-        fetch('https://63c190e499c0a15d28ed39de.mockapi.io/api/v1/movies/', {
+        fetch('https://acb-api.algoritmika.org/api/movies/list', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(listObj),
         })
             .then(res => res.json())
             .then(apiData => {
+                console.log(apiData);
                 setData(apiData)
                 setLocal([...local, apiData])
             })
@@ -53,7 +54,7 @@ export const Favorites = () => {
         if (storedValue) {
             setLocal([...storedValue])
         }
-    }, []);
+    }, [setLocal]);
 
     useEffect(() => {
         localStorage.setItem("mylist", JSON.stringify(local));

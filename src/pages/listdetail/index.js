@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Header } from '../../components/navbar';
 import './style.css';
 
 
 export const ListPageDetail = () => {
     const [algoApiData, setAlgoApiData] = useState({})
     let { id } = useParams();
+
     useEffect(() => {
-        fetch(`https://63c190e499c0a15d28ed39de.mockapi.io/api/v1/movies/${id}`)
+        fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`)
             .then(res => res.json())
             .then(data => {
                 setAlgoApiData(data)
@@ -16,6 +18,7 @@ export const ListPageDetail = () => {
 
     return (
         <>
+        <Header/>
             <div className="list-page">
                 {algoApiData ? <h1 className="list-page__title">{algoApiData.title}</h1> : null}
                 <div className="row">

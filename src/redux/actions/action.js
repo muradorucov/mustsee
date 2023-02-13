@@ -15,6 +15,6 @@ export const listIsEmpty = () => {
     return { type: 'ALL_LIST_EMPTY' }
 }
 
-export const firstSearchValueAction = (payload) => {
+export const searchIntialValueAction = (payload) => {
     return { type: 'CHANGE_FIRTS_SEARCH_VALUE',payload:payload }
 }

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { firstSearchValueAction, getMovies } from '../../redux/actions/action';
+import { getMovies, searchIntialValueAction } from '../../redux/actions/action';
 import { Spinner } from '@chakra-ui/react'
 
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 
 export const SearchBox = (props) => {
@@ -11,6 +12,7 @@ export const SearchBox = (props) => {
     const [searchLine, setSearchLine] = useState("")
     const dispatch = useDispatch()
     const { firstsearchLine } = useSelector(state => state)
+    const nav = useNavigate()
 
     useEffect(() => {
         fetch(`https://www.omdbapi.com/?s=${firstsearchLine[0]}&apikey=278924d5`)
@@ -18,7 +20,7 @@ export const SearchBox = (props) => {
             .then(apiData => {
                 dispatch(getMovies(apiData?.Search))
             })
-    }, [dispatch])
+    }, [dispatch, firstsearchLine])
 
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
@@ -34,7 +36,8 @@ export const SearchBox = (props) => {
             .finally(() => {
                 setLoading(false)
                 props.datadom.current.style.top = "-100vh";
-                dispatch(firstSearchValueAction(searchLine))
+                dispatch(searchIntialValueAction(searchLine))
+                nav("/")
             })
     }
     return (

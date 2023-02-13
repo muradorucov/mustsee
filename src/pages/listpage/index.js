@@ -1,33 +1,44 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { Header } from '../../components/navbar';
 import './style.css'
 
 export const ListPage = () => {
-    const [list, setList] = useState(null)
+    const [localList, setLocalList] = useState([])
 
     useEffect(() => {
         const localValue = JSON.parse(localStorage.getItem("mylist"));
-        if (localValue) {
-            setList([...localValue])
+        if (localValue.length) {
+            setLocalList([...localValue])
         }
     }, []);
-    return (
-        <div className='listpage'>
-            <h1 className="list-page__title">My Lists</h1>
 
-            <ul className='movie-list'>
-                {list?.map(item => (
-                    <>
+    useEffect(() => {
+        localStorage.setItem("mylist", JSON.stringify(localList))
+    }, [localList])
+
+
+    return (
+        <>
+            <Header />
+            <div className='listpage'>
+                <h1 className="list-page__title">My Lists</h1>
+
+                <ul className='movie-list'>
+                    {localList.map(item => (
                         <li key={item.id}>
                             <Link to={`/listdetail/${item.id}`}>
                                 <span>{item.title}</span>
                             </Link>
-                            <button className="list-btn">x</button>
+                            <button
+                                className="list-btn"
+                                onClick={() => setLocalList(localList.filter(localItem => (localItem.id !== item.id)))}
+                            >x</button>
                         </li>
-                    </>
-                ))}
-            </ul>
+                    ))}
+                </ul>
 
-        </div>
+            </div>
+        </>
     )
 }
