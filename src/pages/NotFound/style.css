@@ -461,23 +461,22 @@ label {
 @media (max-width: 750px) {
 
     body,
-    html,
-    {
-    max-height: 100vh;
-}
+    html {
+        max-height: 100vh;
+    }
 
-.error__content {
-    position: static;
-    margin: 0 auto;
-    transform: none;
-    padding-top: 300px;
-}
+    .error__content {
+        position: static;
+        margin: 0 auto;
+        transform: none;
+        padding-top: 300px;
+    }
 
-.error {
-    padding-top: 0;
-    padding-bottom: 100px;
-    height: 100vh;
-}
+    .error {
+        padding-top: 0;
+        padding-bottom: 100px;
+        height: 100vh;
+    }
 }
 
 @media (max-width: 650px) {
