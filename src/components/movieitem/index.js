@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { AddIcon, InfoOutlineIcon } from '@chakra-ui/icons'
+import { AddIcon, InfoOutlineIcon, CloseIcon } from '@chakra-ui/icons'
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addToList } from '../../redux/actions/action';
+import { addToList, removeToList } from '../../redux/actions/action';
 import { Link, useNavigate } from 'react-router-dom';
 import './style.css';
 
@@ -10,7 +10,7 @@ import './style.css';
 export const MovieItem = (props) => {
 
     const [statusAdd, setStatusAdd] = useState(false)
-    const [statusHave, setStatusHave] = useState(false)
+    // const [statusHave, setStatusHave] = useState(false)
     const nav = useNavigate(null)
     const dispatch = useDispatch()
     const { list } = useSelector(state => state)
@@ -23,9 +23,9 @@ export const MovieItem = (props) => {
                 setStatusAdd(false)
             }, 900)
         } else {
-            setStatusHave(true)
+            // setStatusHave(true)
             setTimeout(() => {
-                setStatusHave(false)
+                // setStatusHave(false)
             }, 900)
         }
     }
@@ -59,18 +59,20 @@ export const MovieItem = (props) => {
                     </Stack>
                 </div> : null}
 
-                {statusHave ? <div className='alert'>
+                {/* {statusHave ? <div className='alert'>
                     <Stack>
                         <Alert status='error' variant='solid' >
                             <AlertIcon />
                             The movie is already in the list !
                         </Alert>
                     </Stack>
-                </div> : null}
+                </div> : null} */}
 
             </article>
             <div className='movie-item_action'>
-                <button onClick={() => { addList(props) }}><AddIcon /></button>
+                {list.find(item => item.imdbID === props.imdbID) ?
+                    <button onClick={() => dispatch(removeToList(props))} > <CloseIcon /></button> :
+                    <button onClick={() => { addList(props) }}><AddIcon /></button>}
                 <button onClick={() => { getMovieDetail(props.imdbID) }}><InfoOutlineIcon /></button>
             </div>
         </>
