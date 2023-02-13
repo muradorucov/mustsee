@@ -13,7 +13,7 @@ export const MovieDetail = () => {
     }, [id])
     return (
         <>
-        <Header/>
+            <Header />
         </>
     )
 }
