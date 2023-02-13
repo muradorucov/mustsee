@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "./style.css"
 
-export const NotFound = () => {
+export function NotFound() {
     return (
         <div className='not-found'>
             <header class="top-header">
