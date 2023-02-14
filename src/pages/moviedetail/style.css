@@ -17,7 +17,7 @@
     font-weight: 900;
     font-size: 34px;
     text-transform: uppercase;
-    width: 100%;
+    max-width: 600px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
