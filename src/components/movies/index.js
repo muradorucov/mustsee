@@ -12,7 +12,6 @@ export const Movies = () => {
             {movies[0] ? movies[0].map((movie) => (
                 <li className="movies__item" key={movie.imdbID}>
                     <MovieItem {...movie} />
-
                 </li>
             )) : <span>Movie not found !</span>}
         </ul>

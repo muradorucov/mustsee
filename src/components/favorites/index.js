@@ -71,7 +71,7 @@ export const Favorites = () => {
                     className="favorites__save"
                     disabled={!listName || !list.length}>Save list</button>
             </form>
-            {data ? <Link to={`listdetail/${data.id}`} >
+            {data ? <Link to={`/listdetail/${data.id}`} >
                 <button className="favorites__save">Go to list : {data.title}</button>
             </Link> : null
             }
