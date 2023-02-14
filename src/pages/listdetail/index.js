@@ -30,7 +30,6 @@ export const ListPageDetail = () => {
                             <Link to={`/movie/${item.imdbID}/`}>{item.Title}</Link>
                         </div>
                     ))}
-
                 </div>
             </div>
         </>
