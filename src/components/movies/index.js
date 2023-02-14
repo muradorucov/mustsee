@@ -7,14 +7,15 @@ import './style.css';
 export const Movies = () => {
     const { movies } = useSelector(state => state)
 
+    console.log(movies);
     return (
         <ul className="movies">
-            {movies[0]?.map((movie) => (
+            {movies[0] ? movies[0].map((movie) => (
                 <li className="movies__item" key={movie.imdbID}>
                     <MovieItem {...movie} />
-                    
+
                 </li>
-            ))}
+            )) : <span>Movie not found !</span>}
         </ul>
     )
 }

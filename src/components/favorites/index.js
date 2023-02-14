@@ -25,7 +25,6 @@ export const Favorites = () => {
 
     useEffect(() => {
         setListHeight(favlistOverflow.current.clientHeight)
-        console.log(favlistOverflow.current.clientHeight);
     }, [list])
 
 
