@@ -3,8 +3,9 @@
     padding: 15px calc(50% - 500px);
     display: flex;
 }
-.movie-item-detail img{
-    height: 400px;
+
+.movie-item-detail img {
+    height: 410px;
 }
 
 .movie-item-detail-vs {
@@ -17,7 +18,7 @@
     font-size: 34px;
     text-transform: uppercase;
     width: 100%;
-    white-space:nowrap;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -53,7 +54,6 @@
 }
 
 .movie-detail-btns button {
-    background: #ff0000;
     color: #fff;
     padding: 10px 90px;
     border: 0;
@@ -62,4 +62,12 @@
     margin-top: 40px;
     font-size: 1rem;
     font-weight: 600;
+}
+
+.color-red {
+    background: #ff0000;
+}
+
+.color-nored {
+    background: #706d6d;
 }

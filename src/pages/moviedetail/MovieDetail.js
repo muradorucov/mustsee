@@ -7,15 +7,18 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import StarsIcon from '@mui/icons-material/Stars';
 import "./style.css"
+import { useDispatch, useSelector } from 'react-redux';
+import { addToList, removeToList } from '../../redux/actions/action';
 
 export function MovieDetail() {
     const [movieDeatil, setMovieDeatil] = useState({})
+    const list = useSelector(state => state.list)
     const { id } = useParams()
+    const dispatch = useDispatch()
     useEffect(() => {
         fetch(`https://www.omdbapi.com/?i=${id}&apikey=278924d5`)
             .then(res => res.json())
             .then(apiData => {
-                console.log(apiData);
                 setMovieDeatil(apiData)
             })
     }, [id])
@@ -62,7 +65,13 @@ export function MovieDetail() {
                         </div>
                     </div>
                     <div className='movie-detail-btns'>
-                        <button>+ MY List</button>
+                        {list.find(item => item.imdbID === movieDeatil.imdbID) ?
+                            <button
+                                onClick={() => dispatch(removeToList(movieDeatil))}
+                                className='color-nored'>- REMOVE List</button> :
+                            <button
+                                onClick={() => dispatch(addToList(movieDeatil))}
+                                className='color-red'>+ MY List</button>}
                     </div>
                 </div>
 
