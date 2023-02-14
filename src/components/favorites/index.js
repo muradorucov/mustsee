@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
-import { listIsEmpty, removeToList } from '../../redux/actions/action';
+import { listIsEmpty, localStorageAction, removeToList } from '../../redux/actions/action';
 import { useEffect } from 'react';
 import './style.css';
 
@@ -13,7 +13,7 @@ export const Favorites = () => {
     const [local, setLocal] = useState([])
     const [data, setData] = useState();
 
-    const { list } = useSelector(state => state)
+    const { list,localdata } = useSelector(state => state)
 
     const dispatch = useDispatch()
     const removeList = (param) => {
@@ -36,9 +36,9 @@ export const Favorites = () => {
         })
             .then(res => res.json())
             .then(apiData => {
-                console.log(apiData);
                 setData(apiData)
-                setLocal([...local, apiData])
+                dispatch(localStorageAction([...local, apiData]))
+                // setLocal([...local, apiData])
             })
             .finally(() => {
                 dispatch(listIsEmpty())
@@ -46,19 +46,20 @@ export const Favorites = () => {
                 setTimeout(() => {
                     setSaveList(false)
                 }, 2000)
+                console.log(localdata);
             })
     }
 
-    useEffect(() => {
-        const storedValue = JSON.parse(localStorage.getItem("mylist"));
-        if (storedValue) {
-            setLocal([...storedValue])
-        }
-    }, [setLocal]);
+    // useEffect(() => {
+    //     const storedValue = JSON.parse(localStorage.getItem("mylist"));
+    //     if (storedValue) {
+    //         setLocal([...storedValue])
+    //     }
+    // }, [setLocal]);
 
-    useEffect(() => {
-        localStorage.setItem("mylist", JSON.stringify(local));
-    }, [local])
+    // useEffect(() => {
+    //     localStorage.setItem("mylist", JSON.stringify(local));
+    // }, [local])
 
 
     return (

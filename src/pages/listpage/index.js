@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Header } from '../../components/navbar';
+import { localStorageDeleteAction, localStorageIntialAction } from '../../redux/actions/action';
 import './style.css'
 
-export const ListPage = () => {
-    const [localList, setLocalList] = useState([])
-
+export function ListPage() {
+    const dispatch = useDispatch()
+    const localdata = useSelector(state => state.localdata)
     useEffect(() => {
         const localValue = JSON.parse(localStorage.getItem("mylist"));
-        if (localValue.length) {
-            setLocalList([...localValue])
+        if (localValue) {
+            dispatch(localStorageIntialAction(localValue))
         }
-    }, []);
+    }, [dispatch]);
 
-    useEffect(() => {
-        localStorage.setItem("mylist", JSON.stringify(localList))
-    }, [localList])
 
+    // useEffect(() => {
+    //     localStorage.setItem("mylist", JSON.stringify(localList))
+    // }, [localList])
+
+    const deleteItemLocal = (id) => {
+        dispatch(localStorageDeleteAction(id))
+    }
 
     return (
         <>
@@ -25,14 +31,14 @@ export const ListPage = () => {
                 <h1 className="list-page__title">My Lists</h1>
 
                 <ul className='movie-list'>
-                    {localList.map(item => (
+                    {localdata?.map(item => (
                         <li key={item.id}>
                             <Link to={`/listdetail/${item.id}`}>
                                 <span>{item.title}</span>
                             </Link>
                             <button
                                 className="list-btn"
-                                onClick={() => setLocalList(localList.filter(localItem => (localItem.id !== item.id)))}
+                                onClick={() => deleteItemLocal(item.id)}
                             >x</button>
                         </li>
                     ))}

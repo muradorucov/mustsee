@@ -16,5 +16,16 @@ export const listIsEmpty = () => {
 }
 
 export const searchIntialValueAction = (payload) => {
-    return { type: 'CHANGE_FIRTS_SEARCH_VALUE',payload:payload }
+    return { type: 'CHANGE_FIRTS_SEARCH_VALUE', payload: payload }
+}
+
+export const localStorageAction = (payload) => {
+    return { type: 'GET_ITEM', payload: payload }
+}
+export const localStorageDeleteAction = (payload) => {
+    return { type: 'DELETE_ITEM', payload: payload }
+}
+
+export const localStorageIntialAction = (payload) => {
+    return { type: 'INTIAL_ITEM', payload: payload }
 }

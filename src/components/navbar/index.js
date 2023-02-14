@@ -15,6 +15,7 @@ export const Header = () => {
         search.current.style.top = "0"
     }
 
+
     const closeSearchForm = () => {
         search.current.style.top = "-100vh"
     }
