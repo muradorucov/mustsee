@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import { listIsEmpty, localStorageAction, removeToList } from '../../redux/actions/action';
+import { useRef } from 'react';
 
 import './style.css';
 
@@ -11,13 +12,21 @@ export const Favorites = () => {
     const [listName, setListName] = useState("");
     const [saveList, setSaveList] = useState(false)
     const [data, setData] = useState();
-
-    const { list,localdata } = useSelector(state => state)
+    const { list, localdata } = useSelector(state => state)
 
     const dispatch = useDispatch()
     const removeList = (param) => {
         dispatch(removeToList(param))
     }
+
+
+    const favlistOverflow = useRef(null);
+    const [listHeight, setListHeight] = useState(0);
+
+    useEffect(() => {
+        setListHeight(favlistOverflow.current.clientHeight)
+        console.log(favlistOverflow.current.clientHeight);
+    }, [list])
 
 
     const getSaveList = (e) => {
@@ -68,7 +77,12 @@ export const Favorites = () => {
             </Link> : null
             }
 
-            <ul className="favorites__list">
+            <ul className="favorites__list" ref={favlistOverflow}
+                style={{
+                    overflowY: listHeight > 370 ? 'scroll' : 'auto',
+                    paddingRight: listHeight > 370 ? '10px' : '0',
+                    maxHeight: listHeight > 370 ? '375px' : 'auto'
+                }}>
                 {list?.map((item) => (<li key={item?.imdbID} className="list-item">
                     <span>{item?.Title} ({item?.Year})</span>
                     <button
