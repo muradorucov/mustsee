@@ -3,8 +3,8 @@ export const localStorageReducer = (state = [], action) => {
         localStorage.setItem("mylist", JSON.stringify([...state, ...action.payload]))
         return [...state, ...action.payload]
     } else if (action.type === 'DELETE_ITEM') {
-        localStorage.setItem("mylist", JSON.stringify([...state.filter(item => item.id != action.payload)]))
-        return [...state.filter(item => item.id != action.payload)]
+        localStorage.setItem("mylist", JSON.stringify([...state.filter(item => item.id !== action.payload)]))
+        return [...state.filter(item => item.id !== action.payload)]
     }
     else if (action.type === 'INTIAL_ITEM') {
         localStorage.setItem("mylist", JSON.stringify([...action.payload]))

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Header } from '../../components/navbar';
@@ -16,9 +16,6 @@ export function ListPage() {
     }, [dispatch]);
 
 
-    // useEffect(() => {
-    //     localStorage.setItem("mylist", JSON.stringify(localList))
-    // }, [localList])
 
     const deleteItemLocal = (id) => {
         dispatch(localStorageDeleteAction(id))

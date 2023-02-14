@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Alert, AlertIcon, Stack } from '@chakra-ui/react'
 import { listIsEmpty, localStorageAction, removeToList } from '../../redux/actions/action';
-import { useEffect } from 'react';
+
 import './style.css';
 
 
 export const Favorites = () => {
     const [listName, setListName] = useState("");
     const [saveList, setSaveList] = useState(false)
-    const [local, setLocal] = useState([])
     const [data, setData] = useState();
 
     const { list,localdata } = useSelector(state => state)
@@ -37,8 +36,7 @@ export const Favorites = () => {
             .then(res => res.json())
             .then(apiData => {
                 setData(apiData)
-                dispatch(localStorageAction([...local, apiData]))
-                // setLocal([...local, apiData])
+                dispatch(localStorageAction([apiData]))
             })
             .finally(() => {
                 dispatch(listIsEmpty())
@@ -49,17 +47,6 @@ export const Favorites = () => {
                 console.log(localdata);
             })
     }
-
-    // useEffect(() => {
-    //     const storedValue = JSON.parse(localStorage.getItem("mylist"));
-    //     if (storedValue) {
-    //         setLocal([...storedValue])
-    //     }
-    // }, [setLocal]);
-
-    // useEffect(() => {
-    //     localStorage.setItem("mylist", JSON.stringify(local));
-    // }, [local])
 
 
     return (
