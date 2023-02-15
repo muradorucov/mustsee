@@ -9,6 +9,7 @@ import StarsIcon from '@mui/icons-material/Stars';
 import "./style.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { addToList, removeToList } from '../../redux/actions/action';
+import Footer from '../../components/footer';
 
 export function MovieDetail() {
     const [movieDeatil, setMovieDeatil] = useState({})
@@ -25,7 +26,6 @@ export function MovieDetail() {
     return (
         <>
             <Header />
-
             {Object.keys(movieDeatil).length ? <div className='movie-item-detail'>
                 {movieDeatil?.Poster === 'N/A' ? <img src="https://media.comicbook.com/files/img/default-movie.png"
                     alt={movieDeatil.Title} /> : <img src={movieDeatil?.Poster} alt={movieDeatil?.Title} />}
@@ -81,8 +81,7 @@ export function MovieDetail() {
                 </div>
 
             </div> : <span className='movie-item-detail'>Loading ...</span>}
-
-
+            <Footer/>
         </>
     )
 }

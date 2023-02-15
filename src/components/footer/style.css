@@ -1,0 +1,36 @@
+.footer{
+    background-color: #060f19;
+    padding:  30px calc(50% - 500px);
+}
+
+.imdb-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imdb-section span:nth-child(2){
+    margin: 15px 0;
+}
+
+.imdb-section ul{
+    display: flex;
+}
+
+.imdb-section ul li{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color:#000;
+    margin: 0 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease-in .2s;
+    border: 1px solid #000;
+}
+.imdb-section ul li:hover{
+    background-color:transparent;
+    transition: all ease-in .2s;
+
+}

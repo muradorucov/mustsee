@@ -1,4 +1,5 @@
 .main-page__content {
+    min-height: 75vh;
     padding: 42px calc(50% - 500px);
     display: flex;
     justify-content: space-between;

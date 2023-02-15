@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../components/footer';
 import { Movies } from '../../components/movies';
 import { Header } from '../../components/navbar';
 import './style.css';
@@ -16,6 +17,7 @@ const MainPage = () => {
                     </div>
                 </section>
             </main>
+            <Footer/>
         </div>
     )
 }

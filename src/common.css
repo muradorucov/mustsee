@@ -12,3 +12,22 @@ input {
 body {
     background: #202020 !important;
 }
+
+.my-github{
+    cursor: pointer;
+    position: fixed;
+    bottom: 120px;
+    right: 10px;
+    background-color: #040404;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0.8125rem 0 rgb(3, 3, 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-github svg{
+    width: 60px;
+    height: 60px;
+}

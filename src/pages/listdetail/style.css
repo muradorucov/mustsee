@@ -1,6 +1,7 @@
 .list-page {
     padding: 15px calc(50% - 500px);
     color: #fff;
+    min-height: 75vh;
 }
 
 .list-page__title {

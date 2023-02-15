@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import Footer from '../../components/footer';
 import { Header } from '../../components/navbar';
 import './style.css';
 
@@ -32,6 +33,7 @@ export const ListPageDetail = () => {
                     ))}
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

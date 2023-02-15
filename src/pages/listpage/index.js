@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Footer from '../../components/footer';
 import { Header } from '../../components/navbar';
 import { localStorageDeleteAction, localStorageIntialAction } from '../../redux/actions/action';
 import './style.css'
@@ -42,6 +43,7 @@ export function ListPage() {
                 </ul>
 
             </div>
+            <Footer/>
         </>
     )
 }
