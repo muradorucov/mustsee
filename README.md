@@ -41,3 +41,21 @@ npm start
   > Material UI
 
   > Chakra UI
+
+- Used Hooks :
+
+  > useState
+
+  > useEffect
+
+  > useDispatch
+
+  > useSelector
+
+  > useNavigate
+
+  > useParams
+
+  > useRef
+
+Web Storage API - localStorage 
