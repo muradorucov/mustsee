@@ -1,5 +1,9 @@
 # Movie organizer
 
+```
+This is my movie organizer project that I developed using React and React-redux technologies. You can add your favorite movies to your list and share them with your friends. You can get reviews about any movie. The data is obtained from the server of the OMDBAPI website.
+```
+
 ### Information about the project :
 
 - Project started : Jan 12, 2023
