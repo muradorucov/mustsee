@@ -94,4 +94,8 @@
         text-align: center;
         -webkit-line-clamp: 2;
     }
+    
+    .list-page ul {
+        justify-content: center;
+    }
 }
