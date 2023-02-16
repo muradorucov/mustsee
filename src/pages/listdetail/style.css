@@ -71,6 +71,14 @@
     justify-content: center;
 }
 
+.list-page ul{
+    display: flex;
+    margin: 20px 0 40px;
+}
+.list-page ul li{
+    margin-right: 10px;
+}
+
 
 @media screen and (max-width:516px) {
     .list-movie-item {

@@ -10,7 +10,6 @@ import './style.css'
 export function ListPage() {
     const dispatch = useDispatch()
     const localdata = useSelector(state => state.localdata)
-    console.log(localdata);
     useEffect(() => {
         const localValue = JSON.parse(localStorage.getItem("mylist"));
         if (localValue) {
